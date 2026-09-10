@@ -1,0 +1,14 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "maxfood",
+  "compatibility_date": "2026-09-10",
+  "preview_urls": true,
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "single-page-application"
+  }
+}
