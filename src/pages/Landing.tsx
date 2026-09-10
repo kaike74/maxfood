@@ -25,6 +25,7 @@ import { PhoneMock } from "../components/visual/PhoneMock";
 import { visual } from "../components/visual/photos";
 import { PillarsDiagram } from "../components/visual/Pillars";
 import { WasteDonut } from "../components/visual/WasteDonut";
+import { TestimonialVideo } from "../components/TestimonialVideo";
 import {
   benefits,
   business,
@@ -326,6 +327,26 @@ export function LandingPage() {
           >
             Ver planos a partir de R$ 197
           </Link>
+        </div>
+      </section>
+
+      <section id="depoimento" className="bg-forest py-20 text-white">
+        <div className="site-container grid items-center gap-12 md:grid-cols-2">
+          <Reveal>
+            <p className="text-xs font-bold uppercase tracking-widest text-lime">
+              Depoimento
+            </p>
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight md:text-4xl">
+              Depoimento <span className="text-lime">real</span>
+            </h2>
+            <p className="mt-4 max-w-md text-white/75">
+              O vídeo toca aqui mesmo. No palco, use Zoom para preencher a tela
+              e ouvir com som.
+            </p>
+          </Reveal>
+          <Reveal delay={80} className="flex justify-center">
+            <TestimonialVideo />
+          </Reveal>
         </div>
       </section>
 

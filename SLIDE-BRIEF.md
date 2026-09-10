@@ -2,7 +2,7 @@
 
 Fonte: `Anexos/Pitch-de-7-Slides-MaxFood.pdf`  
 Arquivo original: `C:\Users\Samsung\Downloads\Pitch de 7 Slides MaxFood (2).pdf` (10/09/2026, 17:21)  
-Canva, 8 páginas (título “Pitch de 7 Slides”). Palavras-chave do PDF trazem IDs de YouTube — **vídeo fora da landing**.
+Canva, 8 páginas (título “Pitch de 7 Slides”). O depoimento (slide 7) toca na landing a partir de `IMG_3885.MOV`, convertido para `/depoimento.mp4` — sem YouTube.
 
 ## O que o slide traz
 
@@ -14,7 +14,7 @@ Canva, 8 páginas (título “Pitch de 7 Slides”). Palavras-chave do PDF traze
 | 4 | Mercado | **20%** de crescimento anual projetado (relatório global da GVR). Múltiplos segmentos (restaurantes, supermercados, hotéis, food service). Menos desperdício, mais receita |
 | 5 | Benefícios | Árvore de quatro itens: menos perdas; mais margem; sustentabilidade; facilidade de uso e integração |
 | 6 | Modelo | 01 assinatura SaaS **a partir de R$ 197/mês** → 02 comissão **15%** no marketplace → 03 parcerias com fornecedores e programas de incentivo |
-| 7 | Depoimento | **Vídeo** (frame de celular, “Depoimento real”). **Não entra no site** |
+| 7 | Depoimento | Vídeo na própria landing (`#depoimento`), com zoom em tela cheia |
 | 8 | Próximos passos | Demonstração, parcerias, investir. Fechamento: *Junte-se a nós para transformar o desperdício em lucro* |
 
 ## O que a landing já tinha (antes deste alinhamento)
@@ -36,8 +36,8 @@ Canva, 8 páginas (título “Pitch de 7 Slides”). Palavras-chave do PDF traze
 
 ## O que fica de fora, de propósito
 
-- Qualquer vídeo, iframe, embed ou download (slide 7 e IDs YouTube do PDF)
-- Frame/foto do depoimento (é o vídeo)
+- IDs de YouTube do PDF (o depoimento entra como arquivo local, tocando na própria landing)
+- Frame/foto do depoimento do Canva (substituído pelo vídeo `IMG_3885.MOV` → `/depoimento.mp4`)
 - QR, `/app` e o aviso de projeto acadêmico **permanecem** (não estão no PDF; a banca usa o site)
 
 ## Correção de português na web
