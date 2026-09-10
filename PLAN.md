@@ -1,6 +1,9 @@
 # MaxFood — plano do site
 
-MVP de landing + protótipo para banca (Shark Tank), publicado na Cloudflare.
+MVP de landing + protótipo para banca (Shark Tank), publicado na Cloudflare Pages.
+
+- Site: https://maxfood.pages.dev
+- Código: https://github.com/kaike74/maxfood
 
 ## Stack
 

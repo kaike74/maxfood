@@ -4,4 +4,5 @@
 - Landing de referência de qualidade: github.com/kaike74/Plura (`frontend/public/lp.html`) — estrutura hero/seções/CTA, marca MaxFood (verde/alimentos)
 - Receita de publish: github.com/kaike74/relatorio-demandas-economia — `wrangler.jsonc` + `npm run deploy` / `npx wrangler deploy`
 - Conta Cloudflare: subdomain workers `kaike-458`; Pages existente (plura, dashboards etc.)
-- URL alvo: `https://maxfood.pages.dev` (fallback `https://maxfood.kaike-458.workers.dev`)
+- URL no ar: `https://maxfood.pages.dev`
+- Worker (opcional, se rodar `npx wrangler deploy` após login): `https://maxfood.kaike-458.workers.dev`
