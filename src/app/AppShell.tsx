@@ -2,6 +2,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import type { ReactNode } from "react";
 import { alerts, storeById, type StoreId } from "../data/mock";
 import { clearStoreId } from "../lib/session";
+import { PageTransition } from "../components/motion/PageTransition";
 
 const links = [
   { to: "/app/dashboard", label: "Painel" },
@@ -37,14 +38,14 @@ export function AppShell({
               key={l.to}
               to={l.to}
               className={({ isActive }) =>
-                `whitespace-nowrap rounded-lg px-3 py-2 text-sm font-semibold ${
+                `mf-app-link whitespace-nowrap rounded-lg px-3 py-2 text-sm font-semibold ${
                   isActive ? "bg-white/15 text-lime" : "text-white/75 hover:bg-white/10"
                 }`
               }
             >
               {l.label}
               {l.to.includes("alertas") ? (
-                <span className="ml-2 rounded-full bg-lime px-1.5 text-[10px] font-bold text-forest">
+                <span className="mf-badge-pulse ml-2 inline-block rounded-full bg-lime px-1.5 text-[10px] font-bold text-forest">
                   {alertCount}
                 </span>
               ) : null}
@@ -67,7 +68,7 @@ export function AppShell({
           </div>
           <button
             type="button"
-            className="rounded-lg border border-emerald-100 px-3 py-1.5 text-xs font-semibold text-forest hover:bg-mint"
+            className="mf-btn rounded-lg border border-emerald-100 px-3 py-1.5 text-xs font-semibold text-forest hover:bg-mint"
             onClick={() => {
               clearStoreId();
               navigate("/app");
@@ -76,7 +77,9 @@ export function AppShell({
             Trocar estabelecimento
           </button>
         </header>
-        <main className="p-4 md:p-8">{children}</main>
+        <main className="p-4 md:p-8">
+          <PageTransition>{children}</PageTransition>
+        </main>
       </div>
     </div>
   );

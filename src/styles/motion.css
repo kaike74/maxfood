@@ -1,0 +1,346 @@
+/* MaxFood motion — transform/opacity only. No layout jumps. */
+
+.mf-reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--mf-delay, 0ms);
+}
+
+.mf-reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+.mf-reveal.is-in .mf-stagger > *,
+.mf-route .mf-stagger > * {
+  animation: mf-rise 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.mf-reveal.is-in .mf-stagger > *:nth-child(1),
+.mf-route .mf-stagger > *:nth-child(1) {
+  animation-delay: 40ms;
+}
+.mf-reveal.is-in .mf-stagger > *:nth-child(2),
+.mf-route .mf-stagger > *:nth-child(2) {
+  animation-delay: 110ms;
+}
+.mf-reveal.is-in .mf-stagger > *:nth-child(3),
+.mf-route .mf-stagger > *:nth-child(3) {
+  animation-delay: 180ms;
+}
+.mf-reveal.is-in .mf-stagger > *:nth-child(4),
+.mf-route .mf-stagger > *:nth-child(4) {
+  animation-delay: 250ms;
+}
+.mf-reveal.is-in .mf-stagger > *:nth-child(5),
+.mf-route .mf-stagger > *:nth-child(5) {
+  animation-delay: 320ms;
+}
+.mf-reveal.is-in .mf-stagger > *:nth-child(6),
+.mf-route .mf-stagger > *:nth-child(6) {
+  animation-delay: 390ms;
+}
+
+@keyframes mf-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.mf-route {
+  animation: mf-route-in 0.38s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes mf-route-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.mf-hero-kicker,
+.mf-hero-title,
+.mf-hero-lead,
+.mf-hero-cta,
+.mf-hero-logo {
+  animation: mf-hero-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.mf-hero-kicker {
+  animation-delay: 40ms;
+}
+.mf-hero-title {
+  animation-delay: 120ms;
+}
+.mf-hero-lead {
+  animation-delay: 220ms;
+}
+.mf-hero-cta {
+  animation-delay: 320ms;
+}
+.mf-hero-logo {
+  animation-delay: 180ms;
+  animation-name: mf-logo-in;
+}
+
+@keyframes mf-hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes mf-logo-in {
+  from {
+    opacity: 0;
+    transform: scale(0.97) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.mf-hero-visual {
+  animation: mf-float 9s ease-in-out 1s infinite;
+}
+
+@keyframes mf-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.mf-hero-blob {
+  animation: mf-blob 16s ease-in-out infinite alternate;
+}
+
+@keyframes mf-blob {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(-28px, 18px) scale(1.06);
+  }
+}
+
+.mf-cta-arrow::after {
+  content: "";
+  display: inline-block;
+  width: 0.42em;
+  height: 0.42em;
+  margin-left: 0.5em;
+  margin-bottom: 0.12em;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  animation: mf-arrow-nudge 1.7s ease-in-out 0.8s infinite;
+}
+
+@keyframes mf-arrow-nudge {
+  0%,
+  100% {
+    transform: rotate(45deg) translate(0, 0);
+  }
+  50% {
+    transform: rotate(45deg) translate(2px, 2px);
+  }
+}
+
+.mf-qr-stage {
+  animation: mf-qr-glow 3.8s ease-in-out infinite;
+}
+
+@keyframes mf-qr-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgb(111 191 59 / 0);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgb(111 191 59 / 0.16);
+  }
+}
+
+.mf-card {
+  transition:
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.mf-btn {
+  transition:
+    transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.mf-nav-link {
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.mf-nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -5px;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mf-nav-link:hover::after,
+.mf-nav-link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.mf-brand {
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mf-app-link {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.mf-alert-in {
+  animation: mf-rise 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--mf-delay, 0ms);
+}
+
+.mf-row-in {
+  animation: mf-fade 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--mf-delay, 0ms);
+}
+
+@keyframes mf-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.mf-badge-in {
+  animation: mf-badge 0.4s cubic-bezier(0.34, 1.4, 0.64, 1) both;
+  animation-delay: var(--mf-delay, 0ms);
+}
+
+@keyframes mf-badge {
+  from {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.mf-badge-pulse {
+  animation: mf-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes mf-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .mf-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 32px -16px rgb(15 61 40 / 0.22);
+  }
+
+  .mf-btn:hover {
+    transform: translateY(-1px);
+  }
+
+  .mf-btn:active {
+    transform: translateY(0);
+  }
+
+  .mf-brand:hover {
+    transform: scale(1.03);
+  }
+}
+
+@media (scripting: none) {
+  .mf-reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .mf-reveal,
+  .mf-reveal.is-in .mf-stagger > *,
+  .mf-route .mf-stagger > *,
+  .mf-route,
+  .mf-hero-kicker,
+  .mf-hero-title,
+  .mf-hero-lead,
+  .mf-hero-cta,
+  .mf-hero-logo,
+  .mf-hero-visual,
+  .mf-hero-blob,
+  .mf-cta-arrow::after,
+  .mf-qr-stage,
+  .mf-alert-in,
+  .mf-row-in,
+  .mf-badge-in,
+  .mf-badge-pulse,
+  .mf-card,
+  .mf-btn,
+  .mf-brand,
+  .mf-nav-link::after {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .mf-qr-stage {
+    box-shadow: none;
+  }
+
+  .mf-nav-link::after {
+    display: none;
+  }
+}

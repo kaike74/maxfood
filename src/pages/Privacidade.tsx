@@ -1,9 +1,8 @@
-import { SiteFooter, SiteHeader } from "../components/SiteChrome";
+import { SiteLayout } from "../components/SiteChrome";
 
 export function PrivacidadePage() {
   return (
-    <div>
-      <SiteHeader solid />
+    <SiteLayout>
       <div className="site-container py-16">
         <h1 className="text-3xl font-extrabold">Privacidade</h1>
         <p className="mt-4 max-w-2xl text-ink/70">
@@ -16,7 +15,6 @@ export function PrivacidadePage() {
           são fictícios, para a banca.
         </p>
       </div>
-      <SiteFooter />
-    </div>
+    </SiteLayout>
   );
 }

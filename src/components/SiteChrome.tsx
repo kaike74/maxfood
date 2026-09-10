@@ -1,10 +1,13 @@
+import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { SITE_URL, SLOGAN } from "../config";
+import { PageTransition } from "./motion/PageTransition";
 
 const nav = [
   { href: "/#problema", label: "Problema" },
   { href: "/#solucao", label: "Solução" },
-  { href: "/#como-funciona", label: "Como funciona" },
+  { href: "/#mercado", label: "Mercado" },
+  { href: "/#modelo", label: "Modelo" },
   { href: "/precos", label: "Preços" },
 ];
 
@@ -18,7 +21,7 @@ export function SiteHeader({ solid = false }: { solid?: boolean }) {
       }`}
     >
       <div className="site-container flex h-16 items-center justify-between gap-4">
-        <Link to="/" className="flex items-center gap-2">
+        <Link to="/" className="mf-brand flex items-center gap-2">
           <img
             src="/logo-maxfood.jpg"
             alt="MaxFood"
@@ -38,7 +41,7 @@ export function SiteHeader({ solid = false }: { solid?: boolean }) {
               <Link
                 key={item.href}
                 to={item.href}
-                className={`text-sm font-medium ${
+                className={`mf-nav-link text-sm font-medium ${
                   solid ? "text-ink/70 hover:text-ink" : "text-white/70 hover:text-white"
                 }`}
               >
@@ -48,7 +51,7 @@ export function SiteHeader({ solid = false }: { solid?: boolean }) {
               <a
                 key={item.href}
                 href={item.href}
-                className={`text-sm font-medium ${
+                className={`mf-nav-link text-sm font-medium ${
                   solid ? "text-ink/70 hover:text-ink" : "text-white/70 hover:text-white"
                 }`}
               >
@@ -60,7 +63,7 @@ export function SiteHeader({ solid = false }: { solid?: boolean }) {
         <div className="flex items-center gap-2">
           <Link
             to="/app"
-            className={`hidden rounded-lg px-3 py-2 text-sm font-semibold sm:inline-flex ${
+            className={`mf-btn hidden rounded-lg px-3 py-2 text-sm font-semibold sm:inline-flex ${
               solid ? "text-forest hover:bg-mint" : "text-white/90 hover:bg-white/10"
             }`}
           >
@@ -68,13 +71,31 @@ export function SiteHeader({ solid = false }: { solid?: boolean }) {
           </Link>
           <a
             href="#contato"
-            className="inline-flex rounded-lg bg-lime px-3 py-2 text-sm font-bold text-forest hover:brightness-110"
+            className="mf-btn inline-flex rounded-lg bg-lime px-3 py-2 text-sm font-bold text-forest hover:brightness-110"
           >
             Agendar demonstração
           </a>
         </div>
       </div>
     </header>
+  );
+}
+
+export function SiteLayout({
+  solid = true,
+  className,
+  children,
+}: {
+  solid?: boolean;
+  className?: string;
+  children: ReactNode;
+}) {
+  return (
+    <div className={className}>
+      <SiteHeader solid={solid} />
+      <PageTransition>{children}</PageTransition>
+      <SiteFooter />
+    </div>
   );
 }
 
@@ -91,10 +112,18 @@ export function SiteFooter() {
         <div className="text-sm text-white/70">
           <p className="font-semibold text-white">Navegação</p>
           <div className="mt-3 flex flex-col gap-2">
-            <Link to="/sobre">Sobre</Link>
-            <Link to="/precos">Preços</Link>
-            <Link to="/app">Protótipo</Link>
-            <Link to="/privacidade">Privacidade</Link>
+            <Link className="transition-colors hover:text-white" to="/sobre">
+              Sobre
+            </Link>
+            <Link className="transition-colors hover:text-white" to="/precos">
+              Preços
+            </Link>
+            <Link className="transition-colors hover:text-white" to="/app">
+              Protótipo
+            </Link>
+            <Link className="transition-colors hover:text-white" to="/privacidade">
+              Privacidade
+            </Link>
           </div>
         </div>
         <div className="text-sm text-white/50">

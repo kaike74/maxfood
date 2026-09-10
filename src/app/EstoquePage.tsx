@@ -1,20 +1,8 @@
+import type { CSSProperties } from "react";
 import { productsByStore, riskOf, type StoreId } from "../data/mock";
 import { brl, daysLabel, daysUntil, formatDate } from "../lib/format";
 import { getStoreId } from "../lib/session";
-
-const riskClass: Record<string, string> = {
-  critico: "bg-red-100 text-red-800",
-  alto: "bg-amber-100 text-amber-900",
-  medio: "bg-yellow-50 text-yellow-900",
-  ok: "bg-emerald-50 text-emerald-800",
-};
-
-const riskLabel: Record<string, string> = {
-  critico: "Crítico",
-  alto: "Alto",
-  medio: "Médio",
-  ok: "Estável",
-};
+import { ValidityBadge } from "../components/visual";
 
 export function EstoquePage() {
   const storeId = getStoreId() as StoreId;
@@ -41,11 +29,15 @@ export function EstoquePage() {
             </tr>
           </thead>
           <tbody>
-            {list.map((p) => {
+            {list.map((p, i) => {
               const risk = riskOf(p.expiresAt);
               const value = p.qty * (p.price > 0 ? p.price : p.cost);
               return (
-                <tr key={p.id} className="border-t border-emerald-50">
+                <tr
+                  key={p.id}
+                  className="mf-row-in border-t border-emerald-50"
+                  style={{ "--mf-delay": `${40 + i * 40}ms` } as CSSProperties}
+                >
                   <td className="px-4 py-3">
                     <p className="font-semibold">{p.name}</p>
                     <p className="text-xs text-ink/50">{p.category}</p>
@@ -58,8 +50,11 @@ export function EstoquePage() {
                     <p className="text-xs text-ink/50">{daysLabel(daysUntil(p.expiresAt))}</p>
                   </td>
                   <td className="px-4 py-3">
-                    <span className={`rounded-full px-2 py-0.5 text-xs font-bold ${riskClass[risk]}`}>
-                      {riskLabel[risk]}
+                    <span
+                      className="mf-badge-in inline-flex"
+                      style={{ "--mf-delay": `${80 + i * 40}ms` } as CSSProperties}
+                    >
+                      <ValidityBadge risk={risk} />
                     </span>
                   </td>
                   <td className="px-4 py-3 font-semibold">{brl(value)}</td>

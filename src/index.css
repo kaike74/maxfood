@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./styles/motion.css";
 
 @theme {
   --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
@@ -16,6 +17,12 @@ html {
   scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
   font-family: var(--font-sans);
   color: var(--color-ink);
@@ -29,4 +36,27 @@ body {
 .site-container {
   width: min(1120px, calc(100% - 2rem));
   margin-inline: auto;
+}
+
+.phone-bezel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.75rem;
+  border: 7px solid #13261b;
+  background: #f7fbf5;
+  box-shadow:
+    0 0 0 2px #6fbf3b55,
+    0 28px 50px -12px rgb(0 0 0 / 0.45);
+}
+
+.phone-notch {
+  position: absolute;
+  left: 50%;
+  top: 6px;
+  z-index: 2;
+  height: 10px;
+  width: 72px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: #13261b;
 }

@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { alerts, type StoreId } from "../data/mock";
 import { getStoreId } from "../lib/session";
 
@@ -13,11 +14,15 @@ export function AlertasPage() {
         de gôndola — sem esperar o lixo.
       </p>
       <ul className="mt-6 space-y-3">
-        {list.map((a) => (
-          <li key={a.id} className="rounded-2xl border border-emerald-100 bg-white p-5">
+        {list.map((a, i) => (
+          <li
+            key={a.id}
+            className="mf-alert-in mf-card rounded-2xl border border-emerald-100 bg-white p-5"
+            style={{ "--mf-delay": `${70 + i * 80}ms` } as CSSProperties}
+          >
             <div className="flex flex-wrap items-center justify-between gap-2">
               <span
-                className={`rounded-full px-2 py-0.5 text-xs font-bold ${
+                className={`mf-badge-in rounded-full px-2 py-0.5 text-xs font-bold ${
                   a.tone === "critico"
                     ? "bg-red-100 text-red-800"
                     : a.tone === "alerta"

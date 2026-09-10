@@ -36,14 +36,14 @@ export function OfertasPage() {
       </p>
 
       <h2 className="mt-8 text-lg font-bold">Ofertas</h2>
-      <ul className="mt-3 grid gap-3 md:grid-cols-2">
+      <ul className="mf-stagger mt-3 grid gap-3 md:grid-cols-2">
         {items.map((o) => {
           const product = productById(o.productId);
           if (!product) return null;
           const unit = product.price > 0 ? product.price : product.cost;
           const promo = unit * (1 - o.discountPct / 100);
           return (
-            <li key={o.id} className="rounded-2xl border border-emerald-100 bg-white p-5">
+            <li key={o.id} className="mf-card rounded-2xl border border-emerald-100 bg-white p-5">
               <p className="text-xs font-bold uppercase tracking-wide text-leaf">{product.category}</p>
               <h3 className="mt-1 font-bold">{product.name}</h3>
               <p className="mt-2 text-sm">
@@ -68,7 +68,7 @@ export function OfertasPage() {
               {o.status === "sugerida" ? (
                 <button
                   type="button"
-                  className="mt-4 rounded-lg bg-forest px-3 py-2 text-xs font-bold text-white"
+                  className="mf-btn mt-4 rounded-lg bg-forest px-3 py-2 text-xs font-bold text-white"
                   onClick={() => publish(o.id)}
                 >
                   Publicar oferta

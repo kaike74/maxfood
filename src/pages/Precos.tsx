@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { SiteFooter, SiteHeader } from "../components/SiteChrome";
+import { SiteLayout } from "../components/SiteChrome";
+import { LossVsProfit } from "../components/visual/LossVsProfit";
 
 const plans = [
   {
@@ -30,20 +31,20 @@ const plans = [
 
 export function PrecosPage() {
   return (
-    <div>
-      <SiteHeader solid />
+    <SiteLayout>
       <div className="site-container py-16">
         <p className="text-xs font-bold uppercase tracking-widest text-leaf">Preços</p>
-        <h1 className="mt-2 text-3xl font-extrabold">Assinatura mensal para o comércio</h1>
+        <h1 className="mt-2 text-3xl font-extrabold">Assinatura mensal (SaaS) a partir de R$ 197</h1>
         <p className="mt-3 max-w-xl text-ink/70">
-          Quem compra no marketplace não paga. A barreira de entrada fica baixa de
-          propósito: a dor do vencimento é grande; o preço, não.
+          Três linhas de receita: mensalidade para o comércio, 15% de comissão no
+          marketplace e parcerias com fornecedores. Quem compra nas ofertas não paga
+          assinatura.
         </p>
-        <div className="mt-10 grid gap-4 md:grid-cols-3">
+        <div className="mf-stagger mt-10 grid gap-4 md:grid-cols-3">
           {plans.map((p) => (
             <article
               key={p.name}
-              className={`rounded-2xl border p-6 ${
+              className={`mf-card rounded-2xl border p-6 ${
                 p.featured ? "border-leaf bg-mint" : "border-emerald-100 bg-white"
               }`}
             >
@@ -59,13 +60,17 @@ export function PrecosPage() {
           ))}
         </div>
         <p className="mt-8 text-sm text-ink/60">
-          Comissão de 15% retida no checkout das ofertas, repassada pelo estabelecimento.
+          Comissão de 15% sobre vendas no marketplace, retida no checkout e repassada
+          pelo estabelecimento. A terceira linha — parcerias com fornecedores e
+          programas de incentivo — entra conforme a operação cresce.
         </p>
-        <Link to="/app" className="mt-6 inline-flex font-bold text-leaf">
+        <div className="mt-10 max-w-xl">
+          <LossVsProfit />
+        </div>
+        <Link to="/app" className="mf-btn mt-6 inline-flex font-bold text-leaf">
           Testar o protótipo
         </Link>
       </div>
-      <SiteFooter />
-    </div>
+    </SiteLayout>
   );
 }
