@@ -23,6 +23,7 @@ import { FunnelFlow, LossVsProfit } from "../components/visual/LossVsProfit";
 import { Photo } from "../components/visual/Photo";
 import { PhoneMock } from "../components/visual/PhoneMock";
 import { visual } from "../components/visual/photos";
+import { PillarsDiagram } from "../components/visual/Pillars";
 import { WasteDonut } from "../components/visual/WasteDonut";
 import {
   benefits,
@@ -149,6 +150,9 @@ export function LandingPage() {
               A solução <span className="text-lime">MaxFood</span>
             </h2>
             <p className="mt-4 max-w-lg text-white/75">{solution.lead}</p>
+            <div className="mt-8">
+              <PillarsDiagram />
+            </div>
             <div className="mf-stagger mt-10 space-y-6">
               {solution.pillars.map((p, i) => {
                 const Icon = pillarIcons[i];
@@ -267,6 +271,12 @@ export function LandingPage() {
               <span className="block">para o</span>
               <span className="text-lime">usuário</span>
             </h2>
+            <Photo
+              src={visual.consume}
+              alt="Comida que chegou à mesa, em vez de ir para o lixo"
+              overlay="soft"
+              className="mt-8 h-56 rounded-3xl"
+            />
           </Reveal>
           <Reveal delay={80}>
             <ul className="mf-stagger relative space-y-8 border-l-2 border-lime/40 pl-8">
@@ -361,7 +371,15 @@ export function LandingPage() {
 
       <section id="contato" className="py-20">
         <Reveal>
-        <div className="site-container overflow-hidden rounded-3xl bg-forest px-8 py-12 text-white md:px-12">
+        <div className="site-container overflow-hidden rounded-3xl">
+          <div className="relative">
+            <Photo
+              src={visual.tomatoes}
+              alt="Mãos trocando tomates frescos — o alimento chega a quem consome"
+              overlay="forest"
+              className="h-full min-h-[28rem] md:min-h-[32rem]"
+            />
+            <div className="absolute inset-0 flex flex-col justify-center px-8 py-12 text-white md:px-12">
           <p className="text-xs font-bold uppercase tracking-widest text-lime">
             {nextSteps.kicker}
           </p>
@@ -388,6 +406,8 @@ export function LandingPage() {
             >
               Conhecer o time
             </Link>
+          </div>
+            </div>
           </div>
         </div>
         </Reveal>

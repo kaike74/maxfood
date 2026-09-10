@@ -1,4 +1,5 @@
 import { SiteLayout } from "../components/SiteChrome";
+import { Photo, visual } from "../components/visual";
 
 export function SobrePage() {
   return (
@@ -18,6 +19,26 @@ export function SobrePage() {
           gestão alimentar cresce cerca de 20% ao ano, segundo o relatório global
           da GVR — restaurantes, supermercados, hotéis e food service.
         </p>
+        <div className="mt-10 grid gap-3 sm:grid-cols-3">
+          <Photo
+            src={visual.chef}
+            alt="Cozinha profissional"
+            overlay="soft"
+            className="h-44 rounded-2xl"
+          />
+          <Photo
+            src={visual.produceWall}
+            alt="Hortifruti em gôndola"
+            overlay="soft"
+            className="h-44 rounded-2xl"
+          />
+          <Photo
+            src={visual.consume}
+            alt="Alimento que chegou à mesa"
+            overlay="soft"
+            className="h-44 rounded-2xl"
+          />
+        </div>
         <p className="mt-8 text-sm text-ink/50">
           Trabalho acadêmico de empreendedorismo, apresentado em formato Shark Tank.
           A operação e os estabelecimentos do protótipo são fictícios.
