@@ -9,6 +9,7 @@ import {
 } from "../data/mock";
 import { brl } from "../lib/format";
 import { getStoreId } from "../lib/session";
+import { EmptyState, photoForCategory, ValidityBadge } from "../components/visual";
 
 export function OfertasPage() {
   const storeId = getStoreId() as StoreId;
@@ -43,7 +44,13 @@ export function OfertasPage() {
           const unit = product.price > 0 ? product.price : product.cost;
           const promo = unit * (1 - o.discountPct / 100);
           return (
-            <li key={o.id} className="mf-card rounded-2xl border border-emerald-100 bg-white p-5">
+            <li key={o.id} className="mf-card overflow-hidden rounded-2xl border border-emerald-100 bg-white">
+              <img
+                src={photoForCategory(product.category)}
+                alt=""
+                className="h-32 w-full object-cover"
+              />
+              <div className="p-5">
               <p className="text-xs font-bold uppercase tracking-wide text-leaf">{product.category}</p>
               <h3 className="mt-1 font-bold">{product.name}</h3>
               <p className="mt-2 text-sm">
@@ -51,6 +58,9 @@ export function OfertasPage() {
               </p>
               <p className="mt-1 text-xs text-ink/55">
                 {product.qty} {product.unit} · {product.location}
+              </p>
+              <p className="mt-3">
+                <ValidityBadge risk={riskOf(product.expiresAt)} />
               </p>
               <p className="mt-3 text-sm">
                 Status:{" "}
@@ -74,24 +84,40 @@ export function OfertasPage() {
                   Publicar oferta
                 </button>
               ) : null}
+              </div>
             </li>
           );
         })}
       </ul>
 
       <h2 className="mt-10 text-lg font-bold">Fila de validade (ainda sem oferta)</h2>
+      {catalog.filter((p) => !items.some((o) => o.productId === p.id)).length === 0 ? (
+        <div className="mt-3">
+          <EmptyState
+            title="Fila vazia"
+            text="Todos os lotes em risco já têm oferta — o giro está no marketplace."
+          />
+        </div>
+      ) : (
       <ul className="mt-3 divide-y divide-emerald-50 rounded-2xl border border-emerald-100 bg-white">
         {catalog
           .filter((p) => !items.some((o) => o.productId === p.id))
           .map((p) => (
-            <li key={p.id} className="flex items-center justify-between px-4 py-3 text-sm">
-              <span>
+            <li key={p.id} className="flex items-center gap-3 px-4 py-3 text-sm">
+              <img
+                src={photoForCategory(p.category)}
+                alt=""
+                className="h-10 w-10 rounded-lg object-cover"
+              />
+              <span className="flex-1">
                 {p.name} · {p.qty} {p.unit}
               </span>
+              <ValidityBadge risk={riskOf(p.expiresAt)} />
               <span className="text-xs text-ink/50">candidato a promoção relâmpago</span>
             </li>
           ))}
       </ul>
+      )}
     </div>
   );
 }

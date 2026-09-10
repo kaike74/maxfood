@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 import { alerts, type StoreId } from "../data/mock";
 import { getStoreId } from "../lib/session";
+import { EmptyState } from "../components/visual";
 
 export function AlertasPage() {
   const storeId = getStoreId() as StoreId;
@@ -13,6 +14,14 @@ export function AlertasPage() {
         O sistema avisa o gerente antes do produto vencer e sugere promoção na ponta
         de gôndola — sem esperar o lixo.
       </p>
+      {list.length === 0 ? (
+        <div className="mt-6">
+          <EmptyState
+            title="Nenhum alerta no momento"
+            text="Quando um lote entrar na janela de validade, o aviso aparece aqui."
+          />
+        </div>
+      ) : (
       <ul className="mt-6 space-y-3">
         {list.map((a, i) => (
           <li
@@ -39,6 +48,7 @@ export function AlertasPage() {
           </li>
         ))}
       </ul>
+      )}
     </div>
   );
 }

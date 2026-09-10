@@ -35,16 +35,9 @@ export function FunnelFlow() {
   return (
     <svg viewBox="0 0 640 120" className="w-full" role="img">
       <title>Funil Produz, MaxFood, Consome</title>
-      <defs>
-        <linearGradient id="mfFunnel" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor="#0f3d28" />
-          <stop offset="50%" stopColor="#1f8a3e" />
-          <stop offset="100%" stopColor="#6fbf3b" />
-        </linearGradient>
-      </defs>
       <path
         d="M8 18h180l-18 84H26z"
-        fill="#0f3d28"
+        fill="#6fbf3b"
       />
       <path
         d="M214 28h180l-22 64H236z"
@@ -52,9 +45,9 @@ export function FunnelFlow() {
       />
       <path
         d="M420 38h180l-26 44H446z"
-        fill="#6fbf3b"
+        fill="#e8f6e3"
       />
-      <text x="98" y="68" textAnchor="middle" fill="#fff" fontSize="15" fontWeight="800">
+      <text x="98" y="68" textAnchor="middle" fill="#0f3d28" fontSize="15" fontWeight="800">
         Produz
       </text>
       <text x="304" y="68" textAnchor="middle" fill="#fff" fontSize="15" fontWeight="800">
